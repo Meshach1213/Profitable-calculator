@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+    <h4>Investment Calculator</h4>
+    </div>
+    
+    <div class="container">
+        <div class="total-amount">
+            <h2>Total Amount</h2>
+            <p class="total_amount">#...</p>
+            
+        </div>
+        <div>
+            <div class="day">
+                <label for="days">Enter Period in days</label><br><br>
+                <input type="number" name="days" class="days"><br><br>
+                <p class="error-day">Input is required</p>
+            </div>
+            <div class="amounts">
+                <label for="amount">Capital in Figures</label><br><br>
+                <input type="number" name="amount" class="amount"><br><br>
+                <p class="error-amount">Input is required</p>
+            </div>
+            <div class="submit-btn">
+                <input type="submit" value="Calculate" class="submit">
+            </div>
+        </div>
+    </div>
+    <div class="note">
+        <p>Investment Calculator is an Integrated Logic Calculator that
+            estimate the capital invested by 4% of the account balance everyday for a period of desire days.
+            
+        </p>
+    </div>
+
+    <div class="footer">
+        <div class="contact">
+            <button><i class="fa-brands fa-whatsapp"></i></button>
+            <button><i class="fa-brands fa-facebook"></i></button>
+            <button><i class="fa-solid fa-message"></i></button>
+        </div>
+    </div>
+    <style>
+        body{
+            background-color: rgb(179, 189, 189);
+        }
+        .header h4{
+            text-align: center;
+            font-size: 30px;
+            color: rgb(14, 75, 75);
+        }
+        .container{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 25px 0;
+            background-color: rgb(214, 233, 233);
+            box-shadow: 5px 8px darkslategrey;
+        }
+
+        input[type= number]{
+            width: 100%;
+            border: 2px solid darkslategray;
+            font-size: 23px;
+        }
+
+        input[type= number]:hover{
+            outline: none;
+        }
+
+        input[type= number]:focus{
+            outline: none;
+        }
+
+        input[type = submit]{
+            width: 70%;
+            margin-left: 5%;
+            margin-top: 2%;
+            background: darkslategray;
+            font-size: 20px;
+            padding: 20 0px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            height: 50px;
+            margin-left: 20%;
+            transition: 0.5s;
+        }
+
+        input[type = submit]:hover{
+            background: rgb(14, 75, 75);
+        }
+
+        input[type = submit]:focus{
+            transform: scale(0.9);
+        }
+
+        label{
+            font-size: 23px;
+        }
+
+        .total-amount{
+        
+            font-size: 30px;
+        }
+        
+        .total-amount p{
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid darkslategray;
+            background-color: whitesmoke;
+        }
+        .footer{
+            margin-top: 2%;
+            border-top: 4px solid rgb(14, 75, 75);
+            margin: 0 30%;
+            
+        }
+        .footer .contact{
+            margin-top: 2%;
+            text-align: center;
+                
+        }
+        button{
+                cursor: pointer;
+                background-color: white;
+                border: none;
+                padding: 5px;
+                border-radius: 4px;
+                
+        }
+
+        .fa-facebook, .fa-whatsapp, .fa-message{
+            font-size: 30px;
+            color: rgb(14, 75, 75);
+        }
+
+        .note p{
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        .amounts p, .day p{
+            margin-top: -15px;
+            color: red;
+            display: none;
+        }
+
+       
+        @media screen and (max-width: 768px){
+            .total-amount p{
+                width: 60%;
+                margin-left: 8%;
+            }
+
+            input[type=number]{
+                width: 70%;
+                margin-left: 8%;
+                margin-right: 8%;
+            }
+
+            input[type=submit]{
+                width: 60%;
+                margin-right: 8%;
+            }
+        }
+       
+        @media screen and (max-width: 480px){
+            body{
+                height: 100vh;
+            }
+            .container{
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                align-items: center;
+                
+            }            
+            input[type=number]{
+                width: 80%;
+                margin-left: 8%;
+            }
+            .total-amount p{
+                width: 80%;
+                margin-left: 8%;
+            }
+            input[type=submit]{
+                margin-left: 0;
+                width: auto;
+                margin-left: 8%;
+            }
+            .footer{
+                margin: 0 20%;
+                border-top: 2px solid rgb(14, 75, 75);
+                margin-bottom: 10px;
+            }
+
+            label{
+                margin-left: 8%;
+            }
+            
+        }
+        
+    </style>
+    <script>
+
+        
+        let amountInput = document.querySelector('.amount')
+        let daysInput = document.querySelector('.days')
+        let totalAmount = document.querySelector('.total_amount')
+        let submitButton = document.querySelector('.submit')
+        let error_amount = document.querySelector('.error-amount')
+        let error_day = document.querySelector('.error-day')
+        
+        submitButton.addEventListener('click', ()=>{
+            if(daysInput.value =='') {
+                error_day.setAttribute('style','display:block')
+                totalAmount.innerText ='#...'
+            }
+            if(amountInput.value==''){
+                error_amount.setAttribute('style','display:block')
+
+            }
+            
+
+                newBalance()
+            
+        })
+        
+        
+
+        
+        
+        function newBalance(){
+            let capital;
+            const percentage = 4/100;
+            capital = amountInput.value; 
+            let total = Number(capital) * percentage + Number(capital);
+            let newArr = [];
+            let inputEl = daysInput.value;
+            for(i= 1; i < inputEl; i++){
+                newArr.push(i)
+            }
+
+            newArr.map((arr)=>{
+            total = total *percentage + total;
+            totalAmount.innerText = '#' + total.toFixed(0);
+                
+            })
+        }
+       
+            
+
+
+    </script>
+</body>
+</html>
